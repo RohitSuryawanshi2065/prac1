@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +26,10 @@
               </div>
               <div class="collapse navbar-collapse" id="hide">
               <ul class="nav navbar-nav navbar-right">
-                  <li><a class="nav-link active" href="#" onclick="initial()"><b>Home</b></a></li>
-                  <li><a class="nav-link" href="#" onclick="initial1()"><b>Registration Form</b></a></li>
-                  <li><a class="nav-link" href="#" onclick="initial2()"><b>Show Registrations</b></a></li>
+                <li><a class="nav-link active" href="#" onclick="initial()"><b>Home</b></a></li>
+                <li><a class="nav-link" href="#" onclick="initial1()"><b>Registration Form</b></a></li>
+                <li><a class="nav-link" href="#" onclick="initial2()"><b>Show Registrations</b></a></li>
+                <li><a class="nav-link" href="#" onclick="initial0()"><b>Contact Us</b></a></li>
               </ul>
             </div>
         </div>
@@ -95,7 +97,7 @@
 </div>
 
 
-<div id="register_form">
+<div id="register_form" style="background-color: rgb(126, 133, 126);" >
         <div class="Register">   
   <div class="container">
       <div class="col-lg-6 m-auto d-block">
@@ -197,7 +199,7 @@
                         </div>
                         <span id="alt10" class="text-danger font-weight-bold"> </span>
                   </div>
-                  <input type="button" onclick="initial3()" class="btn btn-primary" value="Submit">
+                  <input type="button" onclick="return initial3()" class="btn btn-primary" value="Submit">
                   
                   
               </form>
@@ -209,7 +211,7 @@
     </div>      
   </div>
   <div>
-      <div class="i1" style="overflow-y: hidden;">
+    <div class="mail" style="background-color: mintcream; color: orangered">
           <p style="text-align: center;">&copy; For any Queries Contact
           <a href="mailto:rsuryawanshi@mitaoe.ac.in">rsuryawanshi@mitaoe.ac.in</a></p>
     </div>
@@ -242,39 +244,83 @@
 
 
 
+<div id="contact_us">
+    <div class="example1" style="background-color: rgb(126, 133, 126);">
+        <div class="Info">
+            <img src="Cont.jpg" alt="Contact" class="Comp" style="width: 100%; height: 360px;">
+            <img src="Contact.jpg" alt="Contact" >
+            <div class="Bio">
+            <div style="color: orangered; font-size: x-large;float: left; ">Address:</div>
+           <p class="para" style="text-align: justify; font-size: large; display: inline;">
+              &nbsp; In front Of Shri Ram Theatre,<br> Star Appartments,Latur Dist.Latur. pin-413512.
+           </p><br><br>
+           <div style="color: orangered; font-size: x-large; float: left;">Customer Care:</div>
+           <p style="text-align: justify; font-size: large;">
+               9923279371
+           </p><br><br>
+      
+           <ul class="social-icons">
+            <li><a href="http://www.facebook.com.rohitsuryawanshi.2065" target="_blank"><img src='facebook.jpg' /></a></li>
+            <li><a href="http://www.instagram.com" target="_blank"><img src='instagram.jpg' /></a></li>
+            <li><a href="http://www.twitter.com" target="_blank"><img src='Twitter.png' /></a></li>
+        </ul>
+           
+           <p class="para" style="text-align: center; font-size: large;">
+              Feel free to Contact us. We will be available 24/7 at your Service.
+           </p>
+          </div> 
+        </div>
+      </div>
+    </div>
+
+
 
       
 <script>
   var today = new Date();
   var t = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      var a=[
+  var a=[
       
-          ];
-      var x = document.getElementById("home");
-      var y= document.getElementById("register_form");
-      var z= document.getElementById("registrant_list");
+      ];
+  var x = document.getElementById("home");
+  var y= document.getElementById("register_form");
+  var z= document.getElementById("registrant_list");
+  var w= document.getElementById("contact_us");
       x.style.display="block";
-          y.style.display="none";
-          z.style.display="none";
-  function initial(){
-      if(x.style.display==="none")
-      {
-          x.style.display="block";
-          y.style.display="none";
-          z.style.display="none";
-      }
+      y.style.display="none";
+      z.style.display="none";
+      w.style.display="none";
+function initial0(){
+  if(w.style.display==="none")
+  {  
+      w.style.display="block";
+      x.style.display="none";
+      y.style.display="none";
+      z.style.display="none";
   }
-  function initial1(){
-      if(y.style.display==="none")
-      {
-          x.style.display="none";
-          y.style.display="block";
-          z.style.display="none";
-      }
+}       
+function initial(){
+  if(x.style.display==="none")
+  { 
+      w.style.display="none";
+      x.style.display="block";
+      y.style.display="none";
+      z.style.display="none";
   }
+}
+function initial1(){
+  if(y.style.display==="none")
+  {
+      w.style.display="none";
+      x.style.display="none";
+      y.style.display="block";
+      z.style.display="none";
+  }
+}
   function initial2(){
       if(z.style.display==="none")
       {
+          w.style.display="none";
           x.style.display="none";
           y.style.display="none";
           z.style.display="block"; 
@@ -285,10 +331,10 @@
           else{
               var text;
               text= "<table class='table table-striped table-bordered table-hover'><thead class='thead-dark'>";
-              text=text + "<tr><th>Time-Stamp</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Mobile</th><th>Hotel</th><th>Events</th><th>Date</th><th>Time</th><th>People</th><th>Menu</th><th>City</th><th></thead><tbody>";
+              text=text + "<tr><th>Time-Stamp</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Mobile</th><th>Hotel</th><th>Events</th><th>Date</th><th>Time</th><th>People</th><th>Menu</th><th>City</th><tr></thead><tbody>";
               for(i=0;i<a.length;i++)
               {
-                  text= text + "<tr><td>" + a[i].time + "</td><td>"+ a[i].fname + "</td><td>" + a[i].lname + "</td><td>" + a[i].email + "</td><td>" + a[i].mobile + "</td><td>" + a[i].Hotel + "</td><td>" + a[i].event + "</td><td>" + a[i].d + "</td><td>" + a[i].t + "</td><td>" + a[i].people + "</td><td>" + a[i].menu + "</td><td>" + a[i].city + "</td><td>" ;
+                  text= text + "<tr><td>" + a[i].time + "</td><td>"+ a[i].fname + "</td><td>" + a[i].lname + "</td><td>" + a[i].email + "</td><td>" + a[i].phone + "</td><td>" + a[i].Hotel + "</td><td>" + a[i].event + "</td><td>" + a[i].d + "</td><td>" + a[i].t + "</td><td>" + a[i].people + "</td><td>" + a[i].menu + "</td><td>" + a[i].city + "</td><tr>" ;
               }
               text += "</tbody></table>";
               document.getElementById("demo1").innerHTML=text;
@@ -312,27 +358,6 @@
       e=document.getElementById("i10").checked;
       q=document.getElementById("date").value;
       r=document.getElementById("time").value;
-      
-    console.log(b);
-    console.log(c);
-    console.log(d);
-    console.log(f);
-    console.log(g);
-    console.log(h);
-    console.log(j);
-    console.log(n);
-    console.log(m);
-    console.log(e);
-      
-      var to = new Date();
-      var v = to.getHours() + ":" + to.getMinutes() + ":" + to.getSeconds();
-      var k={time: v,fname: b, lname: c, email: d,phone: f,Hotel: g,event: h,d: q,t: r,people: j, menu: n, city: m}
-      a.push(k);
-      document.getElementById("form_register").reset();
-
-
-
-
       
       if(b == ""){
   document.getElementById('alt1').innerHTML =" *First Name can't be Empty";
@@ -445,7 +470,19 @@
                 document.getElementById('alt10').innerHTML ="";
             }
       
-  }
+  
+      
+      var to = new Date();
+      var v = to.getHours() + ":" + to.getMinutes() + ":" + to.getSeconds();
+      var k={time: v,fname: b, lname: c, email: d,phone: f,Hotel: g,event: h,d: q,t: r,people: j, menu: n, city: m}
+      a.push(k);
+      document.getElementById("form_register").reset();
+
+
+
+
+      
+  }  
 </script>
 
 
