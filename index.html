@@ -131,16 +131,17 @@
               </div>
 
 
-                  <div class="form-group">
-                     <label for="Evento">Events to be carried out:</label><br>
-                           <input type="radio" name="event" id="i6" value="1">&nbsp;Conferences and seminars </br>
-                          <input type="radio" name="event" id="i6" value="2">&nbsp;Marriage Ceremony</br>
-                          <input type="radio" name="event" id="i6" value="3">&nbsp;Birthday Parties</br>
-                          <input type="radio" name="event" id="i6" value="4">&nbsp;College Events </br>
-                          <input type="radio" name="event" id="i6" value="5">&nbsp;Mall Activities</br>
-                          <input type="radio" name="event" id="i6" value="6">&nbsp;Concerts</br>
-                          <span id="alt6" class="text-danger font-weight-bold"> </span>  
-                 </div>
+              <div class="form-group">
+                <label for="Evento">Events to be carried out:</label><br>
+                      <input type="radio" name="event" id="i6" value="Conferences and seminars ">&nbsp;Conferences and seminars </br>
+                     <input type="radio" name="event" id="i6" value="Marriage Ceremony">&nbsp;Marriage Ceremony</br>
+                     <input type="radio" name="event" id="i6" value="Birthday Parties">&nbsp;Birthday Parties</br>
+                     <input type="radio" name="event" id="i6" value="College Events">&nbsp;College Events </br>
+                     <input type="radio" name="event" id="i6" value="Mall Activities">&nbsp;Mall Activities</br>
+                     <input type="radio" name="event" id="i6" value="Concerts">&nbsp;Concerts</br>
+                     <span id="alt6" class="text-danger font-weight-bold"> </span>  
+            </div>
+        
              
                  
                   <label for="Date">Date/Time:</label>
@@ -196,7 +197,7 @@
                         </div>
                         <span id="alt10" class="text-danger font-weight-bold"> </span>
                   </div>
-                  <input type="button" onclick="return initial3()" class="btn btn-primary" value="Submit">
+                  <input type="button" onclick="initial3()" class="btn btn-primary" value="Submit">
                   
                   
               </form>
@@ -284,10 +285,10 @@
           else{
               var text;
               text= "<table class='table table-striped table-bordered table-hover'><thead class='thead-dark'>";
-              text=text + "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Mobile</th><th>Hotel</th><th>Events</th><th>Date-Time</th><th>People</th><th>Menu</th><th>City</th></tr>Time-Stamp</th></tr></thead><tbody>";
+              text=text + "<tr><th>Time-Stamp</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Mobile</th><th>Hotel</th><th>Events</th><th>Date</th><th>Time</th><th>People</th><th>Menu</th><th>City</th><th></thead><tbody>";
               for(i=0;i<a.length;i++)
               {
-                  text= text + "<tr><td>" + a[i].fname + "</td><td>" + a[i].lname + "</td><td>" + a[i].email + "</td><td>" + a[i].mobile + "</td><td>" + a[i].Hotel + "</td><td>" + a[i].event + "</td><td>" + a[i].dt + "</td><td>" + a[i].people + "</td><td>" + a[i].menu + "</td><td>" + a[i].city + "</td><td>";
+                  text= text + "<tr><td>" + a[i].time + "</td><td>"+ a[i].fname + "</td><td>" + a[i].lname + "</td><td>" + a[i].email + "</td><td>" + a[i].mobile + "</td><td>" + a[i].Hotel + "</td><td>" + a[i].event + "</td><td>" + a[i].d + "</td><td>" + a[i].t + "</td><td>" + a[i].people + "</td><td>" + a[i].menu + "</td><td>" + a[i].city + "</td><td>" ;
               }
               text += "</tbody></table>";
               document.getElementById("demo1").innerHTML=text;
@@ -298,7 +299,7 @@
   }
   function initial3()
   {   
-      var b,c,d,f,g,e,h,j,n,m;
+      var b,c,d,f,g,e,h,j,n,m,q,r;
       b=document.getElementById("i1").value;
       c=document.getElementById("i2").value;
       d=document.getElementById("i3").value;
@@ -309,11 +310,32 @@
       n=document.getElementById("i8").value;
       m=document.getElementById("i9").value;
       e=document.getElementById("i10").checked;
-      const rbs = document.querySelectorAll('input[name="event"]');
+      q=document.getElementById("date").value;
+      r=document.getElementById("time").value;
       
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    console.log(f);
+    console.log(g);
+    console.log(h);
+    console.log(j);
+    console.log(n);
+    console.log(m);
+    console.log(e);
+      
+      var to = new Date();
+      var v = to.getHours() + ":" + to.getMinutes() + ":" + to.getSeconds();
+      var k={time: v,fname: b, lname: c, email: d,phone: f,Hotel: g,event: h,d: q,t: r,people: j, menu: n, city: m}
+      a.push(k);
+      document.getElementById("form_register").reset();
 
+
+
+
+      
       if(b == ""){
-  document.getElementById('alt1').innerHTML =" *Please fill the first Name field";
+  document.getElementById('alt1').innerHTML =" *First Name can't be Empty";
   return false;
 }
       else if((b.length <= 3) || (b.length > 20)) {
@@ -342,6 +364,7 @@
       else{
           document.getElementById('alt2').innerHTML ="";
       }
+
 
       
 
@@ -387,13 +410,23 @@
       {
           document.getElementById('alt3').innerHTML ="";
       }
+      if(f == ""){
+				document.getElementById('alt4').innerHTML =" **Please fill the Mobile Number field";
+				return false;
+			}
+			if(isNaN(f)){
+				document.getElementById('alt4').innerHTML =" **User must write digits only not characters";
+				return false;
+			}
+			if(f.length!=10){
+				document.getElementById('alt4').innerHTML =" **Mobile Number must be 10 digits only";
+				return false;
+			}
+            else{
+                document.getElementById('alt4').innerHTML ="";
+            }
 
-
-
-
-
-
-      if(g == null)
+            if(h == null)
       {
           document.getElementById('alt6').innerHTML =" *Select Event";
           return false;
@@ -402,43 +435,15 @@
           document.getElementById('alt6').innerHTML ="";
       }
 
-     
 
-
-
-
-      if(f == ""){
-  document.getElementById('alt4').innerHTML =" *Please fill the Mobile Number field";
-  return false;
-}
-if(isNaN(f)){
-  document.getElementById('alt4').innerHTML =" *User must write digits only not characters";
-  return false;
-}
-if(f.length!=10){
-  document.getElementById('alt4').innerHTML =" *Mobile Number must be 10 digits only";
-  return false;
-}
-      else{
-          document.getElementById('alt4').innerHTML ="";
-      }
-      
-     
-      if(e == false)
-      {
-          document.getElementById('alt10').innerHTML =" *Compulsary";
-  return false;
-      }
-      else{
-          document.getElementById('alt10').innerHTML ="";
-      }
-
-      
-      var to = new Date();
-      var h = to.getHours() + ":" + to.getMinutes() + ":" + to.getSeconds();
-      var k={fname: b, lname: c, email: d,phone: f,Hotel: g,event: h,dt: times,people: j, menu: n, city: m,time: h}
-      a.push(k);
-      document.getElementById("form_register").reset();
+   if(e == false)
+            {
+                document.getElementById('alt10').innerHTML =" **Required";
+				return false;
+            }
+            else{
+                document.getElementById('alt10').innerHTML ="";
+            }
       
   }
 </script>
